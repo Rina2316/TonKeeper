@@ -1,0 +1,1 @@
+export const FRONT_URL = 'https://16ab-2001-41d0-700-7b75-00.ngrok-free.app'
