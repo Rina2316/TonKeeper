@@ -46,6 +46,12 @@
     font-size: 1.2rem;
 	 text-align: center;
   }
+  .address {
+    font-weight: bold;
+    max-width: 100%;
+    word-wrap: break-word;
+    cursor: pointer;
+  }
 
   button {
     background-color: $primary-color;
