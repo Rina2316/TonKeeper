@@ -1,0 +1,32 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master  # основная ветка
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # обновление до v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3  # обновление до v3
+        with:
+          node-version: '20'  # используйте Node.js 20, так как v12 больше не поддерживается
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3  # последняя версия экшена для деплоя
+        with:
+          github_token: ${{ secrets.ACCESS_TOKEN }}
+          publish_dir: ./dist  # путь к вашим собранным файлам
+          branch: gh-pages
